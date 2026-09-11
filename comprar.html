@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Comprar | Midnight Clubs
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            MIDNIGHT<span>CLUBS</span>
+        </a>
+
+        <nav class="main-nav">
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a href="eventos.html">
+                Eventos
+            </a>
+
+            <a
+                href="ingressos.html"
+                class="active"
+            >
+                Ingressos
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <a
+                href="entrar.html"
+                class="login-link"
+            >
+                Entrar
+            </a>
+
+            <div class="system-container">
+
+                <button
+                    class="dots-button"
+                    id="dotsButton"
+                    aria-label="Abrir sistema"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+                <div
+                    class="system-menu"
+                    id="systemMenu"
+                >
+
+                    <div class="system-title">
+                        SISTEMA
+                    </div>
+
+                    <a href="gestao.html">
+                        Painel de Gestão
+                    </a>
+
+                    <a href="clientes.html">
+                        Clientes
+                    </a>
+
+                    <a href="vendas.html">
+                        Vendas
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="purchase-section">
+
+        <div class="purchase-container">
+
+            <div class="purchase-header">
+
+                <a
+                    href="eventos.html"
+                    class="back-link"
+                >
+                    ← Voltar para eventos
+                </a>
+
+                <span class="eyebrow">
+                    COMPRA DE INGRESSO
+                </span>
+
+                <h1>
+                    Finalize sua compra
+                </h1>
+
+            </div>
+
+            <div class="purchase-layout">
+
+                <div class="purchase-event">
+
+                    <span
+                        class="event-category"
+                        id="purchaseCategory"
+                    >
+                        EVENTO
+                    </span>
+
+                    <h2 id="purchaseEvent">
+                        Carregando evento...
+                    </h2>
+
+                    <p id="purchaseLocation">
+                        --
+                    </p>
+
+                    <p
+                        id="purchaseAddress"
+                        class="event-location"
+                    >
+                        --
+                    </p>
+
+                    <p
+                        id="purchaseDescription"
+                        class="event-location"
+                    >
+                        --
+                    </p>
+
+                    <div class="purchase-info">
+
+                        <div>
+
+                            <span>
+                                Data
+                            </span>
+
+                            <strong id="purchaseDate">
+                                --
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Horário
+                            </span>
+
+                            <strong id="purchaseTime">
+                                --
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Lote
+                            </span>
+
+                            <strong id="purchaseLot">
+                                --
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Disponíveis
+                            </span>
+
+                            <strong id="purchaseStock">
+                                --
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="purchase-box">
+
+                    <div class="purchase-box-header">
+
+                        <span>
+                            Ingresso
+                        </span>
+
+                        <strong id="purchasePrice">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                    <div class="quantity-control">
+
+                        <span>
+                            Quantidade
+                        </span>
+
+                        <div class="quantity-buttons">
+
+                            <button
+                                type="button"
+                                id="decreaseQuantity"
+                            >
+                                −
+                            </button>
+
+                            <strong id="quantity">
+                                1
+                            </strong>
+
+                            <button
+                                type="button"
+                                id="increaseQuantity"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="purchase-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="purchaseTotal">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        id="registerTicket"
+                        class="button purchase-button"
+                    >
+                        Cadastrar ingresso
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="logo">
+                MIDNIGHT<span>CLUBS</span>
+            </div>
+
+            <p>
+                Experiências que marcam.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a href="eventos.html">
+                Eventos
+            </a>
+
+            <a href="ingressos.html">
+                Ingressos
+            </a>
+
+            <a href="entrar.html">
+                Entrar
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../data/database.js"></script>
+<script src="../js/main.js"></script>
+
+<script>
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const idProduto =
+    parametros.get("id");
+
+const produto =
+    produtos.find(
+        item =>
+            item.idProduto === idProduto
+    );
+
+const purchaseEvent =
+    document.getElementById(
+        "purchaseEvent"
+    );
+
+const purchaseCategory =
+    document.getElementById(
+        "purchaseCategory"
+    );
+
+const purchaseLocation =
+    document.getElementById(
+        "purchaseLocation"
+    );
+
+const purchaseAddress =
+    document.getElementById(
+        "purchaseAddress"
+    );
+
+const purchaseDescription =
+    document.getElementById(
+        "purchaseDescription"
+    );
+
+const purchaseTime =
+    document.getElementById(
+        "purchaseTime"
+    );
+
+const purchaseDate =
+    document.getElementById(
+        "purchaseDate"
+    );
+
+const purchaseLot =
+    document.getElementById(
+        "purchaseLot"
+    );
+
+const purchaseStock =
+    document.getElementById(
+        "purchaseStock"
+    );
+
+const purchasePrice =
+    document.getElementById(
+        "purchasePrice"
+    );
+
+const purchaseTotal =
+    document.getElementById(
+        "purchaseTotal"
+    );
+
+const quantityDisplay =
+    document.getElementById(
+        "quantity"
+    );
+
+const increaseQuantity =
+    document.getElementById(
+        "increaseQuantity"
+    );
+
+const decreaseQuantity =
+    document.getElementById(
+        "decreaseQuantity"
+    );
+
+const registerTicket =
+    document.getElementById(
+        "registerTicket"
+    );
+
+let quantidade = 1;
+
+function atualizarTotal() {
+
+    if (!produto) {
+        return;
+    }
+
+    const total =
+        produto.precoVenda *
+        quantidade;
+
+    purchaseTotal.textContent =
+        total.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+
+    quantityDisplay.textContent =
+        quantidade;
+}
+
+if (produto) {
+
+    const dataFormatada =
+        produto.dataEvento
+            .split("-")
+            .reverse()
+            .join("/");
+
+    purchaseEvent.textContent =
+        produto.nomeEvento;
+
+    purchaseCategory.textContent =
+        produto.categoria;
+
+    purchaseLocation.textContent =
+        `${produto.clubLocal} — ${produto.cidade}`;
+
+    purchaseAddress.textContent =
+        `Endereço: ${produto.endereco}`;
+
+    purchaseDescription.textContent =
+        produto.descricao;
+
+    purchaseTime.textContent =
+        `${produto.horario}H`;
+
+    purchaseDate.textContent =
+        dataFormatada;
+
+    purchaseLot.textContent =
+        produto.lote;
+
+    purchaseStock.textContent =
+        produto.quantidadeEstoque;
+
+    purchasePrice.textContent =
+        produto.precoVenda.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+
+    registerTicket.href =
+        `cadastrar-ingresso.html?id=${produto.idProduto}`;
+
+    atualizarTotal();
+
+    document.title =
+        `Comprar ${produto.nomeEvento} | Midnight Clubs`;
+
+} else {
+
+    purchaseEvent.textContent =
+        "Evento não encontrado";
+
+    purchaseCategory.textContent =
+        "";
+
+    purchaseLocation.textContent =
+        "O evento selecionado não está disponível.";
+
+    registerTicket.style.display =
+        "none";
+}
+
+if (increaseQuantity) {
+
+    increaseQuantity.addEventListener(
+        "click",
+        function() {
+
+            if (!produto) {
+                return;
+            }
+
+            if (
+                quantidade <
+                produto.quantidadeEstoque
+            ) {
+
+                quantidade++;
+
+                atualizarTotal();
+            }
+
+        }
+    );
+}
+
+if (decreaseQuantity) {
+
+    decreaseQuantity.addEventListener(
+        "click",
+        function() {
+
+            if (quantidade > 1) {
+
+                quantidade--;
+
+                atualizarTotal();
+            }
+
+        }
+    );
+}
+
+</script>
+
+</body>
+
+</html>
