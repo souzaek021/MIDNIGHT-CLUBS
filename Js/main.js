@@ -1,3 +1,4 @@
+const listaProdutos = typeof produtos !== "undefined" ? produtos : [];
 const systemButton = document.getElementById("dotsButton");
 const systemMenu = document.getElementById("systemMenu");
 const featuredEvents = document.getElementById("featuredEvents");
@@ -29,15 +30,12 @@ function estaNaPastaPages() {
 
 function caminhoImagem(caminho) {
     if (!caminho) return "";
-
-    return estaNaPastaPages()
-        ? `../${caminho}`
-        : caminho;
+    return estaNaPastaPages() ? `../${caminho}` : caminho;
 }
 
 function caminhoEvento(id) {
     return estaNaPastaPages()
-        ? `../evento.html?id=${id}`
+        ? `evento.html?id=${id}`
         : `Pages/evento.html?id=${id}`;
 }
 
@@ -50,9 +48,9 @@ function criarCard(evento) {
             <a
                 href="${caminhoEvento(evento.idProduto)}"
                 class="event-card-image"
-                style="background-image: url('${imagem}'); background-size: cover; background-position: center;"
                 aria-label="Abrir ${evento.nomeEvento}"
             >
+                <img src="${imagem}" alt="${evento.nomeEvento}">
                 <div class="event-date">
                     ${formatarData(evento.dataEvento)}
                 </div>
@@ -113,12 +111,12 @@ function carregarDestaques() {
     if (!featuredEvents) return;
 
     renderizarEventos(
-        produtos.slice(0, 3),
+        listaProdutos.slice(0, 3),
         featuredEvents
     );
 }
 
-function carregarTodosEventos(lista = produtos) {
+function carregarTodosEventos(lista = listaProdutos) {
     if (!allEventsGrid) return;
 
     renderizarEventos(
@@ -137,7 +135,7 @@ function pesquisarEventos() {
 
     const termo = eventSearch.value.trim().toLowerCase();
 
-    const resultados = produtos.filter(evento => {
+    const resultados = listaProdutos.filter(evento => {
         return (
             evento.nomeEvento.toLowerCase().includes(termo) ||
             evento.clubLocal.toLowerCase().includes(termo) ||
@@ -170,5 +168,7 @@ if (systemButton && systemMenu) {
     });
 }
 
-carregarDestaques();
-carregarTodosEventos();
+document.addEventListener("DOMContentLoaded", function() {
+    carregarDestaques();
+    carregarTodosEventos();
+});

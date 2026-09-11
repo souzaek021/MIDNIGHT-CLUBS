@@ -1,1 +1,474 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=../evento.html?id=__ID__"></head><body><script>const q=new URLSearchParams(location.search).get('id');location.replace('../evento.html?id='+encodeURIComponent(q||''));</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Evento | Midnight Clubs
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../Css/global.css"
+    >
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            MIDNIGHT<span>CLUBS</span>
+        </a>
+
+        <nav class="main-nav">
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a
+                href="eventos.html"
+                class="active"
+            >
+                Eventos
+            </a>
+
+            <a href="ingressos.html">
+                Ingressos
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <a
+                href="entrar.html"
+                class="login-link"
+            >
+                Entrar
+            </a>
+
+            <div class="system-container">
+
+                <button
+                    class="dots-button"
+                    id="dotsButton"
+                    aria-label="Abrir sistema"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+                <div
+                    class="system-menu"
+                    id="systemMenu"
+                >
+
+                    <div class="system-title">
+                        SISTEMA
+                    </div>
+
+                    <a href="gestao.html">
+                        Painel de Gestão
+                    </a>
+
+                    <a href="clientes.html">
+                        Clientes
+                    </a>
+
+                    <a href="vendas.html">
+                        Vendas
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="event-detail-section">
+
+        <div
+            class="event-detail-container"
+            id="eventDetail"
+        >
+
+            <div class="event-detail-image">
+
+                <div
+                    class="event-detail-date"
+                    id="eventDate"
+                >
+                    --
+                </div>
+
+            </div>
+
+            <div class="event-detail-content">
+
+                <span
+                    class="eyebrow"
+                    id="eventCategory"
+                >
+                    EVENTO
+                </span>
+
+                <h1 id="eventName">
+                    Carregando evento...
+                </h1>
+
+                <p
+                    class="event-location"
+                    id="eventLocation"
+                >
+                    --
+                </p>
+
+                <p
+                    class="event-location"
+                    id="eventAddress"
+                >
+                    --
+                </p>
+
+                <p
+                    class="event-location"
+                    id="eventDescription"
+                >
+                    --
+                </p>
+
+                <div class="event-details">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Data
+                        </span>
+
+                        <strong id="eventDateText">
+                            --
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-item">
+
+                        <span>
+                            Horário
+                        </span>
+
+                        <strong id="eventTime">
+                            --
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-item">
+
+                        <span>
+                            Lote
+                        </span>
+
+                        <strong id="eventLot">
+                            --
+                        </strong>
+
+                    </div>
+
+                    <div class="detail-item">
+
+                        <span>
+                            Ingressos disponíveis
+                        </span>
+
+                        <strong id="eventStock">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="event-purchase">
+
+                    <div>
+
+                        <span class="price-label">
+                            A partir de
+                        </span>
+
+                        <strong id="eventPrice">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        id="buyButton"
+                        class="button"
+                    >
+                        Comprar ingresso
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="logo">
+                MIDNIGHT<span>CLUBS</span>
+            </div>
+
+            <p>
+                Experiências que marcam.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a href="eventos.html">
+                Eventos
+            </a>
+
+            <a href="ingressos.html">
+                Ingressos
+            </a>
+
+            <a href="entrar.html">
+                Entrar
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../data/database.js"></script>
+<script src="../Js/main.js"></script>
+
+<script>
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const idProduto =
+    parametros.get("id");
+
+const produto =
+    produtos.find(
+        item =>
+            item.idProduto === idProduto
+    );
+
+const eventDetail =
+    document.getElementById(
+        "eventDetail"
+    );
+
+const eventName =
+    document.getElementById(
+        "eventName"
+    );
+
+const eventCategory =
+    document.getElementById(
+        "eventCategory"
+    );
+
+const eventLocation =
+    document.getElementById(
+        "eventLocation"
+    );
+
+const eventAddress =
+    document.getElementById(
+        "eventAddress"
+    );
+
+const eventDescription =
+    document.getElementById(
+        "eventDescription"
+    );
+
+const eventTime =
+    document.getElementById(
+        "eventTime"
+    );
+
+const eventDate =
+    document.getElementById(
+        "eventDate"
+    );
+
+const eventDateText =
+    document.getElementById(
+        "eventDateText"
+    );
+
+const eventLot =
+    document.getElementById(
+        "eventLot"
+    );
+
+const eventStock =
+    document.getElementById(
+        "eventStock"
+    );
+
+const eventPrice =
+    document.getElementById(
+        "eventPrice"
+    );
+
+const buyButton =
+    document.getElementById(
+        "buyButton"
+    );
+
+if (produto) {
+
+    const dataFormatada =
+        produto.dataEvento
+            .split("-")
+            .reverse()
+            .join("/");
+
+    eventName.textContent =
+        produto.nomeEvento;
+
+    eventCategory.textContent =
+        produto.categoria;
+
+    eventLocation.textContent =
+        `${produto.clubLocal} — ${produto.cidade}`;
+
+    eventAddress.textContent =
+        `Endereço: ${produto.endereco}`;
+
+    eventDescription.textContent =
+        produto.descricao;
+
+    eventTime.textContent =
+        `${produto.horario}H`;
+
+    eventDate.textContent =
+        dataFormatada;
+
+    eventDateText.textContent =
+        dataFormatada;
+
+    eventLot.textContent =
+        produto.lote;
+
+    eventStock.textContent =
+        produto.quantidadeEstoque;
+
+    eventPrice.textContent =
+        produto.precoVenda.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+
+    const imagemEvento =
+        `../${produto.imagem}`;
+
+    const imagemElemento =
+        eventDetail.querySelector(
+            ".event-detail-image"
+        );
+
+    imagemElemento.style.backgroundImage =
+        `url("${imagemEvento}")`;
+
+    imagemElemento.style.backgroundSize =
+        "cover";
+
+    imagemElemento.style.backgroundPosition =
+        "center";
+
+    buyButton.href =
+        `comprar.html?id=${produto.idProduto}`;
+
+    document.title =
+        `${produto.nomeEvento} | Midnight Clubs`;
+
+} else {
+
+    eventDetail.innerHTML = `
+
+        <div class="empty-state">
+
+            <h2>
+                Evento não encontrado
+            </h2>
+
+            <p>
+                O evento selecionado
+                não está disponível.
+            </p>
+
+            <a
+                href="eventos.html"
+                class="button"
+            >
+                Voltar para eventos
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+</script>
+
+</body>
+
+</html>

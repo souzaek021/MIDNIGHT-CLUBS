@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight Clubs</title>
+    <link rel="stylesheet" href="Css/global.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            MIDNIGHT<span>CLUBS</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html" class="active">Início</a>
+            <a href="Pages/eventos.html">Eventos</a>
+            <a href="Pages/ingressos.html">Ingressos</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="Pages/entrar.html" class="login-link">Entrar</a>
+
+            <div class="system-container">
+                <button class="dots-button" id="dotsButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="system-menu" id="systemMenu">
+                    <div class="system-title">SISTEMA</div>
+
+                    <a href="Pages/gestao.html">Painel de Gestão</a>
+                    <a href="Pages/clientes.html">Clientes</a>
+                    <a href="Pages/vendas.html">Vendas</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">MIDNIGHT CLUBS</span>
+
+            <h1>
+                Seu próximo evento
+                <strong>começa aqui.</strong>
+            </h1>
+
+            <p>
+                Encontre festas, shows e experiências
+                exclusivas.
+            </p>
+
+            <a href="Pages/eventos.html" class="button">
+                Explorar eventos
+            </a>
+        </div>
+    </section>
+
+    <section class="events-section">
+
+        <div class="section-header">
+            <div>
+                <span class="eyebrow">AGENDA</span>
+                <h2>Eventos em destaque</h2>
+            </div>
+
+            <a href="Pages/eventos.html" class="section-link">
+                Ver todos
+            </a>
+        </div>
+
+        <div class="events-grid" id="featuredEvents"></div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <div class="logo">
+                MIDNIGHT<span>CLUBS</span>
+            </div>
+
+            <p>
+                Experiências que marcam.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="Pages/eventos.html">Eventos</a>
+            <a href="Pages/ingressos.html">Ingressos</a>
+            <a href="Pages/entrar.html">Entrar</a>
+        </div>
+
+    </div>
+</footer>
+
+<script src="data/database.js"></script>
+<script src="Js/main.js"></script>
+
+</body>
+</html>

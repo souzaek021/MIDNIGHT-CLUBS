@@ -1,1 +1,301 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=../ingressos.html"></head><body></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingressos | Midnight Clubs</title>
+    <link rel="stylesheet" href="../Css/global.css">
+</head>
+<body>
+
+<header class="header">
+
+    <div class="header-container">
+
+        <a href="../index.html" class="logo">
+            MIDNIGHT<span>CLUBS</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="ingressos.html" class="active">Ingressos</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <a href="entrar.html" class="login-link">
+                Entrar
+            </a>
+
+            <div class="system-container">
+
+                <button
+                    class="dots-button"
+                    id="dotsButton"
+                    aria-label="Abrir sistema"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="system-menu" id="systemMenu">
+
+                    <div class="system-title">
+                        SISTEMA
+                    </div>
+
+                    <a href="gestao.html">
+                        Painel de Gestão
+                    </a>
+
+                    <a href="clientes.html">
+                        Clientes
+                    </a>
+
+                    <a href="vendas.html">
+                        Vendas
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="page-hero">
+
+        <div class="page-hero-container">
+
+            <span class="eyebrow">
+                SEUS INGRESSOS
+            </span>
+
+            <h1>
+                Meus
+                <strong>ingressos.</strong>
+            </h1>
+
+            <p>
+                Consulte os ingressos cadastrados para seus eventos.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="tickets-section">
+
+        <div class="tickets-container">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">
+                        ÁREA DO CLIENTE
+                    </span>
+
+                    <h2>
+                        Ingressos cadastrados
+                    </h2>
+                </div>
+
+                <span
+                    class="event-count"
+                    id="ticketCount"
+                >
+                    0 ingressos
+                </span>
+
+            </div>
+
+            <div
+                class="tickets-list"
+                id="ticketsList"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="logo">
+                MIDNIGHT<span>CLUBS</span>
+            </div>
+
+            <p>
+                Experiências que marcam.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a href="eventos.html">
+                Eventos
+            </a>
+
+            <a href="ingressos.html">
+                Ingressos
+            </a>
+
+            <a href="entrar.html">
+                Entrar
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../data/database.js"></script>
+<script src="../Js/main.js"></script>
+
+<script>
+
+const ticketsList =
+    document.getElementById("ticketsList");
+
+const ticketCount =
+    document.getElementById("ticketCount");
+
+function carregarIngressos() {
+
+    const ingressos =
+        JSON.parse(
+            localStorage.getItem("midnightIngressos")
+        ) || [];
+
+    ticketCount.textContent =
+        `${ingressos.length} ${
+            ingressos.length === 1
+                ? "ingresso"
+                : "ingressos"
+        }`;
+
+    if (ingressos.length === 0) {
+
+        ticketsList.innerHTML = `
+            <div class="empty-state">
+
+                <h2>
+                    Nenhum ingresso cadastrado
+                </h2>
+
+                <p>
+                    Escolha um evento para começar.
+                </p>
+
+                <a
+                    href="eventos.html"
+                    class="button"
+                >
+                    Ver eventos
+                </a>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    ticketsList.innerHTML =
+        ingressos.map(ingresso => {
+
+            return `
+                <article class="ticket-card">
+
+                    <div class="ticket-card-main">
+
+                        <div class="ticket-card-category">
+                            ${ingresso.categoria}
+                        </div>
+
+                        <h3>
+                            ${ingresso.nomeEvento}
+                        </h3>
+
+                        <p>
+                            ${ingresso.clubLocal}
+                        </p>
+
+                    </div>
+
+                    <div class="ticket-card-details">
+
+                        <div>
+                            <span>
+                                Data
+                            </span>
+
+                            <strong>
+                                ${ingresso.dataEvento}
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Lote
+                            </span>
+
+                            <strong>
+                                ${ingresso.lote}
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Quantidade
+                            </span>
+
+                            <strong>
+                                ${ingresso.quantidade}
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div class="ticket-card-code">
+
+                        <span>
+                            Código do ingresso
+                        </span>
+
+                        <strong>
+                            ${ingresso.idIngresso}
+                        </strong>
+
+                    </div>
+
+                </article>
+            `;
+
+        }).join("");
+
+}
+
+carregarIngressos();
+
+</script>
+
+</body>
+</html>

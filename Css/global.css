@@ -340,20 +340,17 @@ input {
 
 .event-card-image {
     height: 230px;
-
     position: relative;
+    display: block;
+    overflow: hidden;
+    background: #15121c;
+}
 
-    background:
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(139, 92, 246, 0.5),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #15121c,
-            #29203b
-        );
+.event-card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 .event-date {
@@ -462,6 +459,9 @@ input {
 }
 
 .event-detail-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 500px;
 
     position: relative;
