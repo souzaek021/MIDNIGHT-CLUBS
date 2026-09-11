@@ -335,7 +335,7 @@ input {
 
 .event-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(139, 92, 246, 0.4);
+    border-color: rgb(76, 255, 32);
 }
 
 .event-card-image {
