@@ -339,10 +339,12 @@ input {
 }
 
 .event-card-image {
-    height: 230px;
+    height: 350px;
     position: relative;
     display: block;
-    overflow: hidden;git 
+    overflow: hidden;
+}
+
 .event-card-image img {
     width: 100%;
     height: 100%;
