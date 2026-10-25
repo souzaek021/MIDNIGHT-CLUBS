@@ -15,7 +15,7 @@ const produtos = [
         precoVenda: 80,
         quantidadeEstoque: 500,
         statusItem: "Ativo",
-        imagem: "../Assets/artbat-greenvalley.jpg"
+        imagem: "Assets/artbat-greenvalley.jpg"
     },
     {
         idProduto: "PRD002",
@@ -33,7 +33,7 @@ const produtos = [
         precoVenda: 120,
         quantidadeEstoque: 300,
         statusItem: "Ativo",
-        imagem: "../Assets/dna-camboriu.jpg"
+        imagem: "Assets/dna-camboriu.jpg"
     },
     {
         idProduto: "PRD003",
@@ -51,7 +51,7 @@ const produtos = [
         precoVenda: 180,
         quantidadeEstoque: 150,
         statusItem: "Ativo",
-        imagem: "../Assets/vintage-culture-rio.jpg"
+        imagem: "Assets/vintage-culture-rio.jpg"
     }
 ];
 

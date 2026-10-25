@@ -10,106 +10,93 @@
 
 <header class="header">
     <div class="header-container">
-
-        <a href="index.html" class="logo">
-            MIDNIGHT<span>CLUBS</span>
-        </a>
-
+        <a href="index.html" class="logo">MIDNIGHT<span>CLUBS</span></a>
         <nav class="main-nav">
             <a href="index.html" class="active">Início</a>
             <a href="Pages/eventos.html">Eventos</a>
             <a href="Pages/ingressos.html">Ingressos</a>
         </nav>
-
+        
         <div class="header-actions">
-            <a href="Pages/entrar.html" class="login-link">Entrar</a>
+            <!-- Botões que aparecem quando NÃO é admin -->
+            <a href="Pages/criar-conta.html" class="login-link not-admin">Criar Conta</a>
+            <a href="Pages/entrar.html" class="login-link not-admin">Entrar</a>
+            <a href="Pages/admin-login.html" class="button not-admin" style="padding: 8px 20px; margin-top: 0; margin-left: 15px; background: transparent; border: 1px solid var(--accent); color: var(--text);">
+                Admin
+            </a>
 
-            <div class="system-container">
-                <button class="dots-button" id="dotsButton">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <!-- Menu que aparece APENAS quando o Admin está logado -->
+            <div class="system-container is-admin" style="display: none;">
+                <button class="admin-tab" id="dotsButton" style="background: var(--accent); border: none; color: #fff; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 10px;">
+                    Menu Admin
                 </button>
-
                 <div class="system-menu" id="systemMenu">
-                    <div class="system-title">SISTEMA</div>
-
-                    <a href="Pages/gestao.html">Painel de Gestão</a>
+                    <div class="system-title">ADMINISTRADOR</div>
+                    <a href="Pages/gestao.html">Painel de Controle</a>
                     <a href="Pages/clientes.html">Clientes</a>
                     <a href="Pages/vendas.html">Vendas</a>
+                    <a href="#" id="logoutAdmin" style="color: #ff4d4d;">Sair (Logout)</a>
                 </div>
             </div>
         </div>
-
     </div>
 </header>
 
 <main>
-
     <section class="hero">
         <div class="hero-content">
             <span class="eyebrow">MIDNIGHT CLUBS</span>
-
-            <h1>
-                Seu próximo evento
-                <strong>começa aqui.</strong>
-            </h1>
-
-            <p>
-                Encontre festas, shows e experiências
-                exclusivas.
-            </p>
-
-            <a href="Pages/eventos.html" class="button">
-                Explorar eventos
-            </a>
+            <h1>Seu próximo evento <strong>começa aqui.</strong></h1>
+            <p>Encontre festas, shows e experiências exclusivas.</p>
+            <a href="Pages/eventos.html" class="button">Explorar eventos</a>
         </div>
     </section>
 
     <section class="events-section">
-
         <div class="section-header">
             <div>
                 <span class="eyebrow">AGENDA</span>
                 <h2>Eventos em destaque</h2>
             </div>
-
-            <a href="Pages/eventos.html" class="section-link">
-                Ver todos
-            </a>
+            <a href="Pages/eventos.html" class="section-link">Ver todos</a>
         </div>
-
         <div class="events-grid" id="featuredEvents"></div>
-
     </section>
-
 </main>
 
 <footer class="footer">
     <div class="footer-container">
-
         <div>
-            <div class="logo">
-                MIDNIGHT<span>CLUBS</span>
-            </div>
-
-            <p>
-                Experiências que marcam.
-            </p>
+            <div class="logo">MIDNIGHT<span>CLUBS</span></div>
+            <p>Experiências que marcam.</p>
         </div>
-
         <div class="footer-links">
             <a href="index.html">Início</a>
             <a href="Pages/eventos.html">Eventos</a>
             <a href="Pages/ingressos.html">Ingressos</a>
             <a href="Pages/entrar.html">Entrar</a>
         </div>
-
     </div>
 </footer>
 
 <script src="data/database.js"></script>
 <script src="Js/main.js"></script>
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const isAdmin = localStorage.getItem('midnightAdmin') === 'true';
+    if (isAdmin) {
+        document.querySelectorAll('.not-admin').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.is-admin').forEach(el => el.style.display = 'block');
+    }
+    const logoutBtn = document.getElementById('logoutAdmin');
+    if(logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('midnightAdmin');
+            window.location.reload();
+        });
+    }
+});
+</script>
 </body>
 </html>

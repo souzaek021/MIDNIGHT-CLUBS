@@ -1,0 +1,20 @@
+warning: in the working copy of 'Css/global.css', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/Css/global.css b/Css/global.css[m
+[1mindex 85f04bf..df0f96a 100644[m
+[1m--- a/Css/global.css[m
+[1m+++ b/Css/global.css[m
+[36m@@ -339,10 +339,12 @@[m [minput {[m
+ }[m
+ [m
+ .event-card-image {[m
+[31m-    height: 230px;[m
+[32m+[m[32m    height: 350px;[m
+     position: relative;[m
+     display: block;[m
+[31m-    overflow: hidden;git [m
+[32m+[m[32m    overflow: hidden;[m
+[32m+[m[32m}[m
+[32m+[m
+ .event-card-image img {[m
+     width: 100%;[m
+     height: 100%;[m
